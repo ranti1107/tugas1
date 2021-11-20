@@ -15,13 +15,15 @@ class ProdukController extends Controller {
 	}
 
 	function store(){
-		$produk = new Produk;
+
+		$produk = new produk;
 		$produk-> id_user = request()->user()->id;
 		$produk-> nama = request('nama');
-		$produk-> stok= request('stok');
 		$produk-> harga = request('harga');
 		$produk-> berat = request('berat');
-		$produk-> deskripsi= request('deskripsi');
+		$produk-> stok = request('stok');
+		$produk-> deskripsi = request('deskripsi');
+		$produk->handleUploadFoto();
 		$produk-> save();
 
 		return redirect('Admin/produk')->with('success', 'Data Berhasil Ditambah');
@@ -38,16 +40,19 @@ class ProdukController extends Controller {
 	}
 
 	function update(Produk $produk){
+
 		$produk-> nama = request('nama');
-		$produk-> stok= request('stok');
-		$produk-> harga= request('harga');
-		$produk-> berat= request('berat');
-		$produk-> deskripsi= request('deskripsi');
+		$produk-> harga = request('harga');
+		$produk-> berat = request('berat');
+		$produk-> stok = request('stok');
+		$produk-> deskripsi = request('deskripsi');
+		$produk->handleUploadFoto();
 		$produk-> save();
 
 		return redirect('Admin/produk')->with('success', 'Data Berhasil Diedit');
 	}
 	function destroy(Produk $produk){
+		$produk->handleDeleteFoto();
 		$produk->delete();
 		return redirect('Admin/produk')->with('danger', 'Data Berhasil Dihapus');
 	}

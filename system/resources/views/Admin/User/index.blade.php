@@ -18,7 +18,7 @@
 							<th>Nama</th>
 							<th>Username</th>
 							<th>Jenis Kelamin</th>
-							<th>EmaiJenis Kelamin
+							<th>Jenis Kelamin</th>
 						</thead>
 						<tbody>
 							@foreach($list_user as $user)

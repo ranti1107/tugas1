@@ -339,7 +339,7 @@
           <!-- Block2 -->
           <div class="block2">
             <div class="block2-pic hov-img0">
-              <img src="{{url('public')}}/Client/User/images/product-01.jpg" alt="IMG-PRODUCT">
+              <img style="width: 80%; margin-left: 35px;" src="{{url("public/$produk->foto")}}" class="img-fluid">
             </div>
 
             <div class="block2-txt flex-w flex-t p-t-14">
@@ -349,7 +349,7 @@
                 </a>
 
                 <span class="stext-105 cl3">
-                  Rp. {{number_format($produk->harga)}}
+                  {{$produk->harga}}
                 </span>
               </div>
 
@@ -363,6 +363,13 @@
           </div>
         </div>
 @endforeach
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-center">
+            {!! $list_produk->links() !!}
+          </div>
+        </div>
       </div>
       <!-- Load more -->
       <div class="flex-c-m flex-w w-full p-t-45">

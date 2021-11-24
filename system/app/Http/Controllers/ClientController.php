@@ -9,7 +9,7 @@ class ClientController extends Controller{
 
 function showHome(){
 	$data['list_kategori'] = Kategori::all();
-	$data['list_produk'] = Produk::all();
+	$data['list_produk'] = Produk::Paginate('4');
 	return view ('home', $data);
 	}
 function showProduk(Produk $produk){

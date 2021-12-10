@@ -8,6 +8,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,15 +29,22 @@ Route::get('/home', function () {
 Route::get('/produk', function () {
     return view('produk');
 });
+
+
+
 //Admin
 Route::get('Admin/beranda', [HomeController::class, 'showBeranda']);
+Route::get('Admin/beranda', [HomeController::class, 'showBeranda']);
+
+Route::get('Admin/setting', [SettingController::class, 'index']);
+Route::post('Admin/setting', [SettingController::class, 'store']);
 
 Route::prefix('Admin')->group(function(){
 	Route::post('produk/filter', [ProdukController::class, 'filter']);
 	Route::resource('produk', ProdukController::class);
 	Route::resource('kategori', KategoriController::class);
 	Route::resource('user', UserController::class);
-});
+});	
 
 //Route::get('Admin/produk', [ProdukController::class, 'index']);
 //Route::post('Admin/produk', [ProdukController::class, 'store']);
@@ -71,6 +79,9 @@ Route::get('Admin/register', [HomeController::class, 'showRegister']);
 Route::get('Admin/logout', [AuthController::class, 'logout']);
 
 //Client
-Route::get('home', [ClientController::class, 'showHome']);
-Route::post('home/filter', [ClientController::class, 'filter']);
-Route::get('produk/{produk}', [ClientController::class, 'showProduk']);
+	Route::get('home', [ClientController::class, 'showHome']);
+	Route::post('home/filter', [ClientController::class, 'filter']);
+	Route::get('produk/{produk}', [ClientController::class, 'showProduk']);
+	Route::get('pesanan/{produk}', [ClientController::class, 'Pesanan']);
+	
+Route::get('test-ajax', [HomeController::class, 'testAjax']);

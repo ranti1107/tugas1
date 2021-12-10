@@ -43,6 +43,9 @@
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
+          <a href="{{url('Admin/setting')}}" class="dropdown-item">
+            <i class="fas fa-user-cog"></i> Settings
+          </a>
           <div class="dropdown-divider"></div>
           <a href="{{url('Admin/logout')}}" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> LOGOUT

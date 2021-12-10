@@ -47,6 +47,12 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+          <select name="login_as" class="form-control"> 
+            <option value="1">Pembeli</option>
+            <option value="2">Penjual</option>
+          </select>
+          <div class="col-md-12 mt-3">
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -62,15 +68,22 @@
           </div>
           <!-- /.col -->
         </div>
+        </div>
       </form>
       <!-- /.social-auth-links -->
-
+<div class="col-md-12 mt-3">
+  <div class="row">
+    <div class="col-md-12">
       <p class="mb-1">
-        <a href="{{url('login')}}">Masuk Sebagai Pembeli</a>
+        <a href="{{url('login')}}" class="text-center">Masuk Sebagai Pembeli</a>
       </p>
-      <p class="mb-0">
+    </div>
+    <div class="col-md-12">
+      <p class="mb-1">
         <a href="{{url('Admin/user/create')}}" class="text-center">Daftar Akun Admin</a>
       </p>
+  </div>
+      </div>
     </div>
     <!-- /.login-card-body -->
   </div>

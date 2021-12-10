@@ -1,18 +1,17 @@
-<?php
+<?php 
 
 namespace App\Models\Traits\Attributes;
+
 use Illuminate\Support\Str;
 
-Trait ProdukAttributes {
-
+trait ProdukAttributes{
 	function getHargaAttribute(){
 		return "Rp.".number_format($this->attributes['harga']);
 	}
-
 	function handleUploadFoto(){
 		if(request()->hasFile('foto')){
 			$foto = request()->file('foto');
-			$destination = "img/produk";
+			$destination = "images/produk";
 			$randomStr = Str::random(5);
 			$filename = $this->id."-".time()."-".$randomStr.".".$foto->extension();
 			$url = $foto->storeAs($destination, $filename);

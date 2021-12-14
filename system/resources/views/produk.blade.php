@@ -256,7 +256,7 @@
             <div class="p-t-33">
               <div class="flex-w flex-r-m p-b-10">
                 <div class="size-204 flex-w flex-m respon6-next">
-                  <a href="{{url('Client/pesanan', $produk->id)}}">
+                  <a href="{{url('pesanan', $produk->id)}}">
                   <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
                     Pesan Di Sini
                   </button>

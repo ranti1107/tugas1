@@ -36,9 +36,9 @@
 					<div class="card-body">
 						<table class="table table-datatable table-bordered table-striped" style="background-color: #FBEDEA; color: #000">
 						<thead style="background-color: #AE8BA1; text-align: center;">
-							<th style="width: 100px;">No</th>
+							<th style="width: 50px;">No</th>
 							<th>Aksi</th>
-							<th>Nama</th>
+							<th style="width: 500px">Nama</th>
 							<th>Harga</th>
 							<th>Stok</th>
 						</thead>
@@ -54,7 +54,7 @@
 									</div>
 								</td>
 								<td style="text-align: left;">{{$produk->nama}}</td>
-								<td>{{$produk->harga}}</td>
+								<td>Rp. {{number_format($produk->harga)}}</td>
 								<td>{{$produk->stok}}</td>
 							</tr>
 							@endforeach

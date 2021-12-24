@@ -73,41 +73,36 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="{{url('public')}}/Client/User/images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li>
-								<a href="index.html">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
-								</ul>
-							</li>
+			              <li class="active-menu">
+			                <a href="{{url('/home')}}">Home</a>
+			              </li>
 
-							<li>
-								<a href="product.html">Shop</a>
-							</li>
+			              <li>
+			                <a href="#">Shop</a>
+			              </li>
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
-							</li>
+			              <li class="label1" data-label1="hot">
+			                <a href="#">Features</a>
+			              </li>
 
-							<li>
-								<a href="blog.html">Blog</a>
-							</li>
+			              <li>
+			                <a href="#">Blog</a>
+			              </li>
 
-							<li>
-								<a href="about.html">About</a>
-							</li>
+			              <li>
+			                <a href="#">About</a>
+			              </li>
 
-							<li>
-								<a href="contact.html">Contact</a>
-							</li>
-						</ul>
+			              <li>
+			                <a href="{{url('logout')}}">Log Out</a>
+			              </li>
+			            </ul>
 					</div>	
 
 					<!-- Icon header -->
@@ -370,16 +365,51 @@
 
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 							<div class="flex-w flex-m m-r-20 m-tb-5">
-								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
-									
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-									Apply coupon
-								</div>
+								<form action="{{url('konfirmasi-pesananan')}}" method="post">
+								@csrf
+									<label class="flex-c-m" style="margin-right: 10px;"> Jumlah Pesanan </label>
+									<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="number" name="jumlah_pesanan" value="1" min="1">
+										
+									<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+										<button type="submit">
+											Apply coupon
+										</button>
+									</div>
+								</form>
 							</div>
-
-							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-								Update Cart
-							</div>
+						</div>
+						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							<div class="card-body">
+				                        <div class="row">
+				                          <div class="col-md-3">
+				                            <label for="" class="control-label">Provinsi</label>
+				                            <select name="" id="" class="form-control" onchange="gantiProvinsi(this.value)">
+				                              <option value="">Pilih Provinsi</option>
+				                              @foreach ($list_provinsi as $provinsi)
+				                                  <option value="{{ $provinsi->id }}">{{ $provinsi->name }}</option>
+				                              @endforeach
+				                            </select>
+				                          </div>
+				                          <div class="col-md-3">
+				                            <label for="" class="control-label">Kabupaten</label>
+				                            <select name="" id="kabupaten" class="form-control" onchange="gantiKabupaten(this.value)">
+				                              <option value="">Pilih Provinsi terlebih dahulu</option>
+				                            </select>
+				                          </div>
+				                          <div class="col-md-3">
+				                            <label for="" class="control-label">Kecamatan</label>
+				                            <select name="" id="kecamatan" class="form-control" onchange="gantiKecamatan(this.value)">
+				                              <option value="">Pilih Kabupaten terlebih dahulu</option>
+				                            </select>
+				                          </div>
+				                          <div class="col-md-3">
+				                            <label for="" class="control-label">Desa</label>
+				                            <select name="" id="desa" class="form-control">
+				                              <option value="">Pilih Kecamatan terlebih dahulu</option>
+				                            </select>
+				                          </div>                
+				                        </div>
+				                    </div>
 						</div>
 					</div>
 				</div>
@@ -404,6 +434,7 @@
 							</div>
 						</div>
 
+
 						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
 							<div class="size-208 w-full-ssm">
 								<span class="stext-110 cl2">
@@ -420,34 +451,6 @@
 									<span class="stext-112 cl8">
 										Calculate Shipping
 									</span>
-
-									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-										<label for="" class="control-label">Provinsi</label>
-										<select name="" class="form-control" onchange="gantiProvinsi(this.value)">
-											<option value="">Pilih Provinsi</option>
-											@foreach($list_provinsi as $provinsi)
-											<option value="{{$provinsi->id}}">{{$provinsi->nama}}</option>
-											@endforeach
-										</select>
-									</div>
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<label for="" class="control-label">Kabupaten/Kota</label>
-									<select name="" class="form-control" id="kabupaten" onchange="gantiKabupaten(this.value)">
-										<option value=""> Pilih Provinsi Terlebih Dahulu</option>
-									</select>
-								</div>
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<label for="" class="control-label">Kecamatan</label>
-									<select name="" class="form-control" onchange="gantiKecamatan(this.value)">
-										<option value=""> Pilih Kabupaten Terlebih Dahulu></option>
-									</select>
-								</div>
-								<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-									<label for="" class="control-label">Desa</label>
-									<select name="" class="form-control" onchange="gantiDesa(this.value)">
-										<option value=""> Pilih Kecamatan Terlebih Dahulu></option>
-									</select>
-								</div>
 
 									<div class="bor8 bg0 m-b-12">
 										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
@@ -607,26 +610,26 @@
 
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a>
+          <a href="#" class="m-all-1">
+            <img src="{{url('public')}}/Client/User/images/icons/icon-pay-01.png" alt="ICON-PAY">
+          </a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a>
+          <a href="#" class="m-all-1">
+            <img src="{{url('public')}}/Client/User/images/icons/icon-pay-02.png" alt="ICON-PAY">
+          </a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a>
+          <a href="#" class="m-all-1">
+            <img src="{{url('public')}}/Client/User/images/icons/icon-pay-03.png" alt="ICON-PAY">
+          </a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a>
+          <a href="#" class="m-all-1">
+            <img src="{{url('public')}}/Client/User/images/icons/icon-pay-04.png" alt="ICON-PAY">
+          </a>
 
-					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
-				</div>
+          <a href="#" class="m-all-1">
+            <img src="{{url('public')}}/Client/User/images/icons/icon-pay-05.png" alt="ICON-PAY">
+          </a>
+        </div>
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -655,6 +658,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="{{url('public')}}/Client/User/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
   <script src="{{url('public')}}/Client/User/vendor/select2/select2.min.js"></script>
+  @stack('script')
   <script>
     $(".js-select2").each(function(){
       $(this).select2({
@@ -728,6 +732,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     });
   
   </script>
+  
 <!--===============================================================================================-->
   <script src="{{url('public')}}/Client/User/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
   <script>
@@ -748,42 +753,41 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--===============================================================================================-->
   <script src="{{url('public')}}/Client/User/js/main.js"></script>
 
-  	<script>
-
-  		contoh = [{"id":290,"nama":"LANDAK","id_provinsi":20}]
-
-		function gantiProvinsi(id){
-			$.get("api/provinsi/"+id, function(result){
-				result = JSON.parse(result)
-				option = ""
-				for(item of result){
-					option += `<option value="${item.id}">${item.nama}</option>`;
-				}
-				$("#kabupaten").html(option)
-			});
-		}
-		function gantiKabupaten(id){
-			$.get("api/kabupaten/"+nama, function(result){
-				result = JSON.parse(result)
-				option = ""
-				for(item of result){
-					option += `<option value="${item.id}">${result.nama}</option>`;
-				}
-				$("#kecamatan").html(option)
-			});
-		
-		function gantiKecamatan(id){
-			$.get("api/kecamatan/"+nama, function(result){
-				result = JSON.parse(result)
-				option = ""
-				for(item of result){
-					option += `<option value="${item.id}">${result.nama}</option>`;
-				}
-				$("#desa").html(option)
-			});
-		}
-	</script>
-
 </body>
 </html>
 
+
+@push('script')
+    <script>
+      function gantiProvinsi(id) {
+        $.get("api/provinsi/"+id, function (result) {
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option +=`<option value="${item.id}">${item.name}<option/> `;
+          }
+          $("#kabupaten").html(option)
+        });
+      }
+      function gantiKabupaten(id) {
+        $.get("api/kabupaten/"+id, function (result) {
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option +=`<option value="${item.id}">${item.name}<option/> `;
+          }
+          $("#kecamatan").html(option)
+        });
+      }
+      function gantiKecamatan(id) {
+        $.get("api/kecamatan/"+id, function (result) {
+          result = JSON.parse(result)
+          option = ""
+          for(item of result){
+            option += `<option value="${item.id}">${item.name}<option/>`;
+          }
+          $("#desa").html(option)
+        });
+      }
+    </script>
+@endpush

@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Models;
+use app\Models\Kabupaten;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Kabupaten;
 
-class Provinsi extends Model{
-	protected $table = 'provinsi';
+class Provinsi extends Model
+{
+    use HasFactory;
+    protected $table = "provinsi";
 
-	function kabupaten(){
-		return $this->HasMany(Kabupaten::class, 'id_provinsi');
-	}
+    public function kabupaten()
+    {
+        return $this->hasMany(Kabupaten::class, 'id_provinsi');
+    }
 }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Produk;
+use App\Models\User;
+use Auth;
 class ProdukController extends Controller {
 
 	function index(){
 		$user = request()->user();
-		$data['list_produk'] = Produk::all();
-	return view ('Admin.Produk.index', $data);
+		$data['list_produk'] = $user->produk;
+		return view ('Admin.Produk.index', $data);
 	}
 
 	function create(){

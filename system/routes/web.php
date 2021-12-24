@@ -20,6 +20,10 @@ use App\Http\Controllers\SettingController;
 |
 */
 
+Route::get('/404', function(){
+	return view('errors.404');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
@@ -77,6 +81,9 @@ Route::get('Admin/login', [AuthController::class, 'showLogin']);
 Route::post('Admin/login', [AuthController::class, 'LoginProcess']);
 Route::get('Admin/register', [HomeController::class, 'showRegister']);
 Route::get('Admin/logout', [AuthController::class, 'logout']);
+Route::get('logout', [AuthController::class, 'logout']);
+
+Route::get('test-ajax', [HomeController::class, 'testAjax']);
 
 //Client
 	Route::get('home', [ClientController::class, 'showHome']);
@@ -84,4 +91,3 @@ Route::get('Admin/logout', [AuthController::class, 'logout']);
 	Route::get('produk/{produk}', [ClientController::class, 'showProduk']);
 	Route::get('pesanan/{produk}', [ClientController::class, 'Pesanan']);
 	
-Route::get('test-ajax', [HomeController::class, 'testAjax']);

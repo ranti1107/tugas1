@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Request\UserStoreRequest;
 use App\Models\User;
 use App\Models\UserDetail;
+use Illuminate\Http\Request;
+
 class UserController extends Controller {
 
 	function index(){
@@ -33,6 +35,8 @@ class UserController extends Controller {
 	}
 
 	function show(User $user){
+		$user = User::findOrFail($user);
+
 		$data['user'] = $user;
 		return view('Admin.User.show', $data);
 	}

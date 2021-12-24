@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Provinsi;
+use App\Models\Produk;
 
 class HomeController extends Controller{
 
 	function showBeranda(){
-		return view ('Admin.beranda');
+		$data['user'] = request()->user();
+		$data['produk'] = $data['user']->produk;
+		return view ('Admin.beranda', $data);
 	}
 
 	function showKategori(){
@@ -27,6 +30,11 @@ class HomeController extends Controller{
 
 	function showUser(){
 		return view ('Admin.user');
+	}
+
+	function testAjax(){
+		$data['list_provinsi'] = Provinsi::all();
+		return view('Admin.User.test-ajax', $data);
 	}
 
 }

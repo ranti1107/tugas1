@@ -40,13 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
         'pembeli' => [
             'driver' => 'session',
             'provider' => 'pembeli',
-        ],
-       'penjual' => [
-            'driver' => 'session',
-            'provider' => 'penjual',
         ],
     ],
 

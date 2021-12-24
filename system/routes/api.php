@@ -20,4 +20,4 @@ Route::resource('produk', ProdukResource::class);
 
 Route::get('provinsi/{id}', [AlamatResource::class, 'getKabupaten']);
 Route::get('kabupaten/{id}', [AlamatResource::class, 'getKecamatan']);
-Route::get('kecamatan/{id}', [AlamatResource::class, 'getDesa']); 
+Route::get('kecamatan/{id}', [AlamatResource::class, 'getDesa']);

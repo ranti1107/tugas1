@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>SeShop</title>
+  <title>SheShop</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -247,23 +247,30 @@
             <h4 class="mtext-105 cl2 js-name-detail p-b-14">
               {{$produk->nama}}
             </h4>
-
             <span class="mtext-106 cl2">
-              {{$produk->harga}}
+              Rp. {{number_format($produk->harga)}}
+            </span> <br>  
+            <span class="mtext-106 cl2">
+              Stok : {{$produk->stok}}
             </span>
-            
             <!--  -->
-            <div class="p-t-33">
-              <div class="flex-w flex-r-m p-b-10">
-                <div class="size-204 flex-w flex-m respon6-next">
-                  <a href="{{url('pesanan', $produk->id)}}">
-                  <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-                    Pesan Di Sini
-                  </button>
-                  </a>
+                <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+                  <div class="flex-w flex-m m-r-20 m-tb-5">
+                      <label class="flex-c-m" style="margin-right: 10px;"> Jumlah Pesanan </label>
+                      <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="number" name="jumlah_pesanan" value="1" min="1">
+                      <div class="p-t-33">
+                        <div class="flex-w flex-r-m p-b-10">
+                          <div class="size-204 flex-w flex-m respon6-next">
+                            <a href="{{url('pesanan', $produk->id)}}">
+                            <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                              Pesan Di Sini
+                            </button>
+                            </a>
+                          </div>
+                        </div>  
+                      </div>
+                  </div>
                 </div>
-              </div>  
-            </div>
 
             <!--  -->
             <div class="flex-w flex-m p-l-100 p-t-40 respon7">

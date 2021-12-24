@@ -62,7 +62,7 @@
           <div class="menu-desktop">
             <ul class="main-menu">
               <li class="active-menu">
-                <a href="{{url('Client/home')}}">Home</a>
+                <a href="{{url('/home')}}">Home</a>
               </li>
 
               <li>
@@ -349,7 +349,7 @@
                 </a>
 
                 <span class="stext-105 cl3">
-                  {{$produk->harga}}
+                  Rp. {{number_format($produk->harga)}}
                 </span>
               </div>
 

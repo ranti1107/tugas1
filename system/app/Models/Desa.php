@@ -1,16 +1,18 @@
-<? php
+<?php
 
 namespace App\Models;
+use app\Models\Kecamatan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Desa extends Model
 {
-	protected $table = 'desa';
-
-	function kecamatan(){
-		return $this->belongsTo(Desa::class, 'id_kecamatan');
-
-	}
+    use HasFactory;
+    protected $table = "desa";
+    
+    public function kecamatan()
+    {
+        return $this->hasMany(Kecamatan::class, 'id_kecamatan');
+    }
 }

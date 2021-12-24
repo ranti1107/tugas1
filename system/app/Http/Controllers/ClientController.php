@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Kategori;
 use App\Models\Provinsi;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller{
 
@@ -18,11 +19,12 @@ function showProduk(Produk $produk){
 		return view('produk', $data);
 	}
 
-	function Pesanan(Produk $produk){
+function Pesanan(Produk $produk){
 		$data['produk'] = $produk;
 		$data['list_provinsi'] = Provinsi::all();
 		return view ('pesanan', $data);
 	}
+
 
 function filter(){
 		$nama = request('nama');

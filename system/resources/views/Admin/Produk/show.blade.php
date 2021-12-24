@@ -12,7 +12,7 @@
 					<div class="card-body">
 						<h2>{{$produk->nama}}</h2>
 						<hr>
-						<h3>{{$produk->harga}}</h3>
+						<h3>Rp. {{number_format($produk->harga)}}</h3>
 						@include('Admin.Produk.show.detail')
 						<p>
 							{!! nl2br ($produk->deskripsi) !!}

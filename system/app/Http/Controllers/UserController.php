@@ -35,7 +35,7 @@ class UserController extends Controller {
 	}
 
 	function show(User $user){
-		$user = User::findOrFail($user);
+		//$user = User::findOrFail($user);
 
 		$data['user'] = $user;
 		return view('Admin.User.show', $data);
@@ -53,10 +53,6 @@ class UserController extends Controller {
 		$user->detail->no_handphone = request('no_handphone');
 		if(request('password')) $user->password = bcrypt(request('password'));
 		$user-> save();
-
-
-
-
 		
 		return redirect('Admin/user')->with('success', 'Data Berhasil Diedit');
 	}

@@ -10,7 +10,7 @@ class SettingController extends Controller
 		if(Auth::guard('pembeli')->check()){
 			$data['user'] = Auth::guard('pembeli')->user();
 		}else{
-			$data['user'] = Auth::guard('penjual')->user();
+			$data['user'] = Auth::user();
 		}
 		return view('Admin.Setting.index', $data);
 	}
@@ -20,7 +20,7 @@ class SettingController extends Controller
 			if(Auth::guard('pembeli')->check()){
 				$user = Auth::guard('pembeli')->user();
 			}else{
-				$user = Auth::guard('penjual')->user();
+				$user = Auth::user();
 			}
 			$check = Hash::check(request('sekarang'), optional($user)->password);
 			

@@ -306,9 +306,9 @@
           </button>
         </div>
         <div class="col-md-4">
-          <div class="card card-header" style="color: #4B0082; font-family: Arial;">
+          <div class="card card-header" style="color: #000; background-color: #B0C4DE">
             <i class="fa fa-bars">
-            FILTER
+            <b style="font-family: Helvetica">FILTER</b>
             </i>
           </div>
           <div class="card-body">

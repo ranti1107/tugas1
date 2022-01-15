@@ -358,7 +358,7 @@
 										</div>
 									</td>
 									<td class="column-2">{{$produk->nama}}</td>
-									<td class="column-3">{{$produk->harga}}</td>
+									<td class="column-3">Rp. {{number_format($produk->harga)}}</td>
 								</tr>
 							</table>
 						</div>
@@ -429,7 +429,7 @@
 
 							<div class="size-209">
 								<span class="mtext-110 cl2">
-									{{$produk->harga}}
+									Rp. {{number_format($produk->harga)}}
 								</span>
 							</div>
 						</div>
